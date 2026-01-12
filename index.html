@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>房產創收分享會 - Max House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+/* -----------------------------------------------------------
+   1. RESET & BASE STYLES
+----------------------------------------------------------- */
+:root {
+    --primary-gold: #c5a065;
+    --primary-dark: #1a252f;
+    --text-dark: #2c3e50;
+    --text-light: #f8f9fa;
+    --bg-cream: #f9f7f2;
+    --accent-orange: #e67e22;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--text-dark);
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+}
+
+p {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* -----------------------------------------------------------
+   2. UTILITIES
+----------------------------------------------------------- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.text-center { text-align: center; }
+.text-white { color: white !important; }
+
+/* -----------------------------------------------------------
+   3. HERO SECTION (Full Screen)
+----------------------------------------------------------- */
+.hero-section {
+    position: relative;
+    height: 100vh; /* Full screen height */
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    /* Updated Image: Modern Architecture */
+    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(26, 37, 47, 0.4), rgba(26, 37, 47, 0.8));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+    background: rgba(0,0,0,0.6);
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* -----------------------------------------------------------
+   NEW: TOP NAVBAR (Logo Placeholder)
+----------------------------------------------------------- */
+.navbar {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logo 容器樣式 (圓形底) */
+.navbar-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0; /* 移除 padding 讓 flex 居中更準確 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: 2px solid var(--primary-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-dark);
+    font-size: 1.8rem;
+}
+
+.navbar-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    letter-spacing: 1px;
+}
+
+/* -----------------------------------------------------------
+   4. PAIN POINTS (Image Cards Row)
+----------------------------------------------------------- */
+.pain-section {
+    padding: 0;
+}
+
+.section-header-image {
+    background: var(--primary-dark);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+}
+
+.pain-item {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    group: relative;
+}
+
+.pain-item img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.pain-item:hover img {
+    transform: scale(1.1);
+}
+
+.pain-content {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    transition: background 0.3s;
+}
+
+.pain-item:hover .pain-content {
+    background: rgba(0,0,0,0.5);
+}
+
+.pain-num {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--primary-gold);
+    opacity: 0.8;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.pain-content h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* -----------------------------------------------------------
+   5. TRANSITION BANNER
+----------------------------------------------------------- */
+.banner-section {
+    background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.banner-overlay {
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(197, 160, 101, 0.9);
+    mix-blend-mode: multiply;
+}
+
+.banner-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.banner-text h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* -----------------------------------------------------------
+   6. PARTNERSHIP (Split Image Layout)
+----------------------------------------------------------- */
+.partnership-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.partner-block {
+    flex: 1;
+    min-width: 400px;
+    position: relative;
+    height: 700px;
+}
+
+.partner-bg {
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background-size: cover;
+    background-position: center;
+}
+
+.partner-overlay {
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.1));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 60px;
+    color: white;
+}
+
+.tag-badge {
+    background: var(--primary-gold);
+    color: white;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 20px;
+    align-self: flex-start;
+}
+
+.partner-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+/* -----------------------------------------------------------
+   7. TEAM / CREDIBILITY
+----------------------------------------------------------- */
+.team-section {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0;
+}
+
+.team-img img {
+    height: 100%;
+    min-height: 600px;
+    object-fit: cover;
+}
+
+.team-text {
+    padding: 60px;
+    background: #f8f8f8;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.stat-box strong {
+    font-size: 2.5rem;
+    color: var(--primary-gold);
+    display: block;
+}
+
+/* -----------------------------------------------------------
+   8. BENEFITS (Mosaic Gallery)
+----------------------------------------------------------- */
+.benefit-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.benefit-card {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.benefit-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.benefit-card:hover img {
+    transform: scale(1.1);
+}
+
+.benefit-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 100%;
+    padding: 20px;
+    z-index: 2;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+}
+
+.benefit-text h3 {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--primary-gold);
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.overlay-dark {
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.4);
+    transition: background 0.3s;
+}
+
+.benefit-card:hover .overlay-dark {
+    background: rgba(0,0,0,0.6);
+}
+
+/* -----------------------------------------------------------
+   9. CTA FOOTER
+----------------------------------------------------------- */
+.footer-cta {
+    background-color: var(--primary-dark);
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+}
+
+.cta-btn-large {
+    background-color: var(--primary-gold);
+    color: white;
+    font-size: 1.5rem;
+    padding: 20px 60px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-top: 30px;
+    transition: transform 0.2s;
+    font-weight: bold;
+    box-shadow: 0 10px 20px rgba(197, 160, 101, 0.3);
+}
+
+.cta-btn-large:hover {
+    transform: scale(1.05);
+    background-color: #d4ac6e;
+}
+
+/* -----------------------------------------------------------
+   10. FIXED LOGO BUTTON
+----------------------------------------------------------- */
+.fixed-logo-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    border: 3px solid var(--primary-gold);
+    cursor: pointer;
+    overflow: hidden;
+    padding: 15px;
+    color: var(--primary-gold);
+    font-size: 2.5rem; /* Icon size */
+}
+
+/* Remove default img style inside btn if we use icon */
+.fixed-logo-btn i {
+    display: block;
+}
+
+.fixed-logo-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .pain-grid, .team-grid, .partnership-container {
+        grid-template-columns: 1fr;
+        display: block;
+    }
+    .partner-block, .pain-item {
+        width: 100%;
+        height: 500px;
+    }
+    .hero-title { font-size: 3rem; }
+    .stat-grid { grid-template-columns: 1fr; gap: 10px; }
+    
+    .fixed-logo-btn {
+        width: 60px;
+        height: 60px;
+        padding: 10px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.8rem;
+    }
+    
+    .navbar {
+        top: 20px;
+        left: 20px;
+    }
+    .navbar-text {
+        font-size: 1.5rem;
+    }
+    .navbar-logo {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}
+</style>
+</head>
+<body>
+
+    <!-- NEW: Top Left Logo Section (Using Icon instead of Image to prevent broken link) -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <i class="fa-solid fa-house-chimney"></i>
+        </div>
+        <span class="navbar-text">Max House</span>
+    </nav>
+
+    <!-- 1. HERO (Full Screen Image) -->
+    <header class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">房產創收交流會</h1>
+            <div class="hero-subtitle">打破資金門檻,免出資也能啟動的房產投資系統</div>
+            <br>
+            <a href="#cta" style="border: 1px solid white; color: white; padding: 10px 30px; border-radius: 30px; display: inline-block; margin-top: 20px; background: rgba(255,255,255,0.1); backdrop-filter: blur(5px);">
+                點我到報名表 <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. PAIN POINTS (3-Column Images) -->
+    <section class="pain-section">
+        <div class="section-header-image">
+            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">為什麼要參加這場分享會?</h2>
+            <p style="opacity: 0.8;">你是否也面臨這些困境?</p>
+        </div>
+        
+        <div class="pain-grid">
+            <!-- Pain 1: Money -->
+            <div class="pain-item">
+                <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=800&q=80" alt="Lack of Funds">
+                <div class="pain-content">
+                    <div class="pain-num">01</div>
+                    <h3>有資金,無標的</h3>
+                    <p>手上有資金,卻找不到穩定、看得懂的房產投資機會?</p>
+                </div>
+            </div>
+            <!-- Pain 2: Resources/Team -->
+            <div class="pain-item">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="No Team">
+                <div class="pain-content">
+                    <div class="pain-num">02</div>
+                    <h3>有想法,無資源</h3>
+                    <p>想做包租代管,卻苦無案源、缺乏專業團隊支持?</p>
+                </div>
+            </div>
+            <!-- Pain 3: Action/Planning -->
+            <div class="pain-item">
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80" alt="Theory Only">
+                <div class="pain-content">
+                    <div class="pain-num">03</div>
+                    <h3>懂理論,無實戰</h3>
+                    <p>上過許多課程,理論都懂,實戰卻始終跨不出第一步?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. TRANSITION BANNER -->
+    <section class="banner-section">
+        <div class="banner-overlay"></div>
+        <div class="banner-text">
+            <h2>如果您面臨以上困境<br>我們有答案</h2>
+            <p style="font-size: 1.2rem;">Max House 團隊用多年實戰經驗,為您打造房產創收系統</p>
+        </div>
+    </section>
+
+    <!-- 4. PARTNERSHIP (Split Full Images) -->
+    <section class="partnership-container">
+        <!-- Fund Share -->
+        <div class="partner-block">
+            <!-- Updated: Financial Planning / Investment -->
+            <div class="partner-bg" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&q=80');"></div>
+            <div class="partner-overlay">
+                <span class="tag-badge">Partnership Model A</span>
+                <h3 class="partner-title">資金股</h3>
+                <p style="font-size: 1.2rem; margin-bottom: 20px;">提供資金參與「案件」投資<br>共享穩健收益,讓錢為你工作。</p>
+                <div style="font-size: 3rem; color: var(--primary-gold);"><i class="fa-solid fa-sack-dollar"></i></div>
+            </div>
+        </div>
+        <!-- Dev Share -->
+        <div class="partner-block">
+            <!-- Updated: Blueprints/Construction -->
+            <div class="partner-bg" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80');"></div>
+            <div class="partner-overlay">
+                <span class="tag-badge" style="background: var(--accent-orange);">Partnership Model B</span>
+                <h3 class="partner-title">開發股</h3>
+                <p style="font-size: 1.2rem; margin-bottom: 20px;">免出資,用「開發」換股份<br>投入專業與時間,創造無限價值。</p>
+                <div style="font-size: 3rem; color: var(--accent-orange);"><i class="fa-solid fa-hard-hat"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. BENEFITS (Mosaic) -->
+    <section class="benefit-row">
+        <!-- Benefit 1: Keys/Entry -->
+        <div class="benefit-card">
+            <div class="overlay-dark"></div>
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80" alt="Keys to house">
+            <div class="benefit-text">
+                <h3>低資金參與</h3>
+                <p>打破門檻,輕鬆進場</p>
+            </div>
+        </div>
+        <!-- Benefit 2: Analysis/Risk -->
+        <div class="benefit-card">
+            <div class="overlay-dark"></div>
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Data Analysis">
+            <div class="benefit-text">
+                <h3>風險控制</h3>
+                <p>SOP 流程降低風險</p>
+            </div>
+        </div>
+        <!-- Benefit 3: Lifestyle/Cashflow -->
+        <div class="benefit-card">
+            <div class="overlay-dark"></div>
+            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80" alt="Relaxing Lifestyle">
+            <div class="benefit-text">
+                <h3>穩定現金流</h3>
+                <p>創造長期被動收入</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-section" style="padding: 100px 20px; background-color: #1a252f; color: white;">
+        <div class="container text-center">
+            <span style="color: var(--primary-gold); font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">Why Join Us?</span>
+            <h2 style="font-size: 3rem; margin: 20px 0 60px;">這不僅是一堂課,更是您的房產智囊團</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: left;">
+                
+                <!-- Feature 1: Monthly Sessions -->
+                <div class="feature-card" style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s;">
+                    <div style="font-size: 3rem; color: var(--primary-gold); margin-bottom: 20px;">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">每月定期 實體/線上分享</h3>
+                    <p style="color: #aaa; font-size: 1rem; margin: 0;">
+                        我們承諾每個月舉辦交流會,您可以選擇到現場感受熱度,或是線上同步參與。學習不中斷,隨時掌握最新房市動態。
+                    </p>
+                </div>
+
+                <!-- Feature 2: Real Case Studies -->
+                <div class="feature-card" style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s;">
+                    <div style="font-size: 3rem; color: var(--primary-gold); margin-bottom: 20px;">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">真實案源 深度解析</h3>
+                    <p style="color: #aaa; font-size: 1rem; margin: 0;">
+                        拒絕紙上談兵!每次分享會將公開團隊實際操作的案件,從投報率計算到裝修細節,毫無保留地解密獲利邏輯。
+                    </p>
+                </div>
+
+                <!-- Feature 3: Networking -->
+                <div class="feature-card" style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s;">
+                    <div style="font-size: 3rem; color: var(--primary-gold); margin-bottom: 20px;">
+                        <i class="fa-solid fa-users-viewfinder"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">打造富人 投資圈層</h3>
+                    <p style="color: #aaa; font-size: 1rem; margin: 0;">
+                        一個人走得快,一群人走得遠。在這裡,您將結識志同道合的投資夥伴與專業導師,讓環境成為您成功的加速器。
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. TEAM / ABOUT -->
+    <section class="team-section">
+        <div class="team-grid">
+            <div class="team-text">
+                <span style="color: var(--primary-gold); font-weight: bold; letter-spacing: 2px;">關於 Max House</span>
+                <h2 style="font-size: 3rem; margin: 20px 0;">實戰經驗傳承</h2>
+                <p>我們不是只談理論的講師,而是深耕市場的實戰家。Max House 團隊用八年時間,將房產投資的每一個環節標準化、系統化。</p>
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <strong>12+年</strong>
+                        <span>實戰經驗</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>200+</strong>
+                        <span>案件操作</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>100%</strong>
+                        <span>用心投入</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Updated: Team collaboration image -->
+            <div class="team-img">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Team Collaboration">
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CTA FOOTER -->
+    <footer id="cta" class="footer-cta">
+        <div class="container">
+            <h2 style="font-size: 3.5rem; margin-bottom: 20px;">立即開啟創收之旅</h2>
+            <p style="font-size: 1.2rem; opacity: 0.8;">名額有限,需事前審核,確保學習品質</p>
+            
+            <div style="margin: 40px 0; font-size: 1.5rem;">
+                <p><i class="fa-regular fa-calendar"></i> 2025年1月28日</p>
+            </div>
+
+            <!-- Added link to Google Form -->
+            <a href="https://forms.gle/ZF43SgKH52Ks55DEA" target="_blank" class="cta-btn-large">立即預約席次 <i class="fa-solid fa-arrow-right"></i></a>
+            <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.6;">詳細時間與地點將於報名後通知</p>
+        </div>
+    </footer>
+
+    <!-- Fixed Logo Link with Max House Logo (Icon Version) -->
+    <a href="#" class="fixed-logo-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" title="返回頂部 / Max House">
+        <i class="fa-solid fa-house-chimney"></i>
+    </a>
+
+</body>
+</html>

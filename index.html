@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>房產創收分享會 - Max House</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
@@ -75,14 +79,13 @@ a {
 ----------------------------------------------------------- */
 .hero-section {
     position: relative;
-    height: 100vh; /* Full screen height */
+    height: 100vh;
     min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     text-align: center;
-    /* Updated Image: Modern Architecture */
     background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80');
     background-size: cover;
     background-position: center;
@@ -121,7 +124,7 @@ a {
 }
 
 /* -----------------------------------------------------------
-   NEW: TOP NAVBAR (Logo Placeholder)
+   TOP NAVBAR (Real Logo)
 ----------------------------------------------------------- */
 .navbar {
     position: absolute;
@@ -133,20 +136,24 @@ a {
     gap: 15px;
 }
 
-/* Logo 容器樣式 (圓形底) */
 .navbar-logo {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.95);
-    padding: 0; /* 移除 padding 讓 flex 居中更準確 */
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     border: 2px solid var(--primary-gold);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary-dark);
-    font-size: 1.8rem;
+    padding: 8px;
+    overflow: hidden;
+}
+
+.navbar-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .navbar-text {
@@ -159,7 +166,7 @@ a {
 }
 
 /* -----------------------------------------------------------
-   4. PAIN POINTS (Image Cards Row)
+   4. PAIN POINTS
 ----------------------------------------------------------- */
 .pain-section {
     padding: 0;
@@ -182,7 +189,6 @@ a {
     position: relative;
     height: 600px;
     overflow: hidden;
-    group: relative;
 }
 
 .pain-item img {
@@ -261,7 +267,7 @@ a {
 }
 
 /* -----------------------------------------------------------
-   6. PARTNERSHIP (Split Image Layout)
+   6. PARTNERSHIP
 ----------------------------------------------------------- */
 .partnership-container {
     display: flex;
@@ -310,7 +316,7 @@ a {
 }
 
 /* -----------------------------------------------------------
-   7. TEAM / CREDIBILITY
+   7. TEAM
 ----------------------------------------------------------- */
 .team-section {
     padding: 100px 0;
@@ -354,7 +360,7 @@ a {
 }
 
 /* -----------------------------------------------------------
-   8. BENEFITS (Mosaic Gallery)
+   8. BENEFITS
 ----------------------------------------------------------- */
 .benefit-row {
     display: flex;
@@ -440,7 +446,7 @@ a {
 }
 
 /* -----------------------------------------------------------
-   10. FIXED LOGO BUTTON
+   10. FIXED LOGO BUTTON (Real Logo)
 ----------------------------------------------------------- */
 .fixed-logo-btn {
     position: fixed;
@@ -458,15 +464,14 @@ a {
     transition: all 0.3s ease;
     border: 3px solid var(--primary-gold);
     cursor: pointer;
+    padding: 12px;
     overflow: hidden;
-    padding: 15px;
-    color: var(--primary-gold);
-    font-size: 2.5rem; /* Icon size */
 }
 
-/* Remove default img style inside btn if we use icon */
-.fixed-logo-btn i {
-    display: block;
+.fixed-logo-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .fixed-logo-btn:hover {
@@ -490,10 +495,9 @@ a {
     .fixed-logo-btn {
         width: 60px;
         height: 60px;
-        padding: 10px;
+        padding: 8px;
         bottom: 20px;
         right: 20px;
-        font-size: 1.8rem;
     }
     
     .navbar {
@@ -506,22 +510,21 @@ a {
     .navbar-logo {
         width: 50px;
         height: 50px;
-        font-size: 1.5rem;
     }
 }
 </style>
 </head>
 <body>
 
-    <!-- NEW: Top Left Logo Section (Using Icon instead of Image to prevent broken link) -->
+    <!-- Top Left Logo -->
     <nav class="navbar">
         <div class="navbar-logo">
-            <i class="fa-solid fa-house-chimney"></i>
+            <img src="favicon.png" alt="Max House Logo">
         </div>
         <span class="navbar-text">Max House</span>
     </nav>
 
-    <!-- 1. HERO (Full Screen Image) -->
+    <!-- 1. HERO -->
     <header class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -534,7 +537,7 @@ a {
         </div>
     </header>
 
-    <!-- 2. PAIN POINTS (3-Column Images) -->
+    <!-- 2. PAIN POINTS -->
     <section class="pain-section">
         <div class="section-header-image">
             <h2 style="font-size: 2.5rem; margin-bottom: 10px;">為什麼要參加這場分享會?</h2>
@@ -542,7 +545,6 @@ a {
         </div>
         
         <div class="pain-grid">
-            <!-- Pain 1: Money -->
             <div class="pain-item">
                 <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=800&q=80" alt="Lack of Funds">
                 <div class="pain-content">
@@ -551,7 +553,6 @@ a {
                     <p>手上有資金,卻找不到穩定、看得懂的房產投資機會?</p>
                 </div>
             </div>
-            <!-- Pain 2: Resources/Team -->
             <div class="pain-item">
                 <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="No Team">
                 <div class="pain-content">
@@ -560,7 +561,6 @@ a {
                     <p>想做包租代管,卻苦無案源、缺乏專業團隊支持?</p>
                 </div>
             </div>
-            <!-- Pain 3: Action/Planning -->
             <div class="pain-item">
                 <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80" alt="Theory Only">
                 <div class="pain-content">
@@ -572,7 +572,7 @@ a {
         </div>
     </section>
 
-    <!-- 3. TRANSITION BANNER -->
+    <!-- 3. BANNER -->
     <section class="banner-section">
         <div class="banner-overlay"></div>
         <div class="banner-text">
@@ -581,11 +581,9 @@ a {
         </div>
     </section>
 
-    <!-- 4. PARTNERSHIP (Split Full Images) -->
+    <!-- 4. PARTNERSHIP -->
     <section class="partnership-container">
-        <!-- Fund Share -->
         <div class="partner-block">
-            <!-- Updated: Financial Planning / Investment -->
             <div class="partner-bg" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&q=80');"></div>
             <div class="partner-overlay">
                 <span class="tag-badge">Partnership Model A</span>
@@ -594,9 +592,7 @@ a {
                 <div style="font-size: 3rem; color: var(--primary-gold);"><i class="fa-solid fa-sack-dollar"></i></div>
             </div>
         </div>
-        <!-- Dev Share -->
         <div class="partner-block">
-            <!-- Updated: Blueprints/Construction -->
             <div class="partner-bg" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80');"></div>
             <div class="partner-overlay">
                 <span class="tag-badge" style="background: var(--accent-orange);">Partnership Model B</span>
@@ -607,9 +603,8 @@ a {
         </div>
     </section>
 
-    <!-- 5. BENEFITS (Mosaic) -->
+    <!-- 5. BENEFITS -->
     <section class="benefit-row">
-        <!-- Benefit 1: Keys/Entry -->
         <div class="benefit-card">
             <div class="overlay-dark"></div>
             <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80" alt="Keys to house">
@@ -618,7 +613,6 @@ a {
                 <p>打破門檻,輕鬆進場</p>
             </div>
         </div>
-        <!-- Benefit 2: Analysis/Risk -->
         <div class="benefit-card">
             <div class="overlay-dark"></div>
             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Data Analysis">
@@ -627,7 +621,6 @@ a {
                 <p>SOP 流程降低風險</p>
             </div>
         </div>
-        <!-- Benefit 3: Lifestyle/Cashflow -->
         <div class="benefit-card">
             <div class="overlay-dark"></div>
             <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80" alt="Relaxing Lifestyle">
@@ -638,16 +631,14 @@ a {
         </div>
     </section>
 
-    <!-- FEATURES SECTION -->
+    <!-- FEATURES -->
     <section class="features-section" style="padding: 100px 20px; background-color: #1a252f; color: white;">
         <div class="container text-center">
             <span style="color: var(--primary-gold); font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">Why Join Us?</span>
             <h2 style="font-size: 3rem; margin: 20px 0 60px;">這不僅是一堂課,更是您的房產智囊團</h2>
             
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: left;">
-                
-                <!-- Feature 1: Monthly Sessions -->
-                <div class="feature-card" style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s;">
+                <div class="feature-card" style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
                     <div style="font-size: 3rem; color: var(--primary-gold); margin-bottom: 20px;">
                         <i class="fa-solid fa-calendar-check"></i>
                     </div>
@@ -657,8 +648,7 @@ a {
                     </p>
                 </div>
 
-                <!-- Feature 2: Real Case Studies -->
-                <div class="feature-card" style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s;">
+                <div class="feature-card" style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
                     <div style="font-size: 3rem; color: var(--primary-gold); margin-bottom: 20px;">
                         <i class="fa-solid fa-magnifying-glass-chart"></i>
                     </div>
@@ -668,8 +658,7 @@ a {
                     </p>
                 </div>
 
-                <!-- Feature 3: Networking -->
-                <div class="feature-card" style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s;">
+                <div class="feature-card" style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
                     <div style="font-size: 3rem; color: var(--primary-gold); margin-bottom: 20px;">
                         <i class="fa-solid fa-users-viewfinder"></i>
                     </div>
@@ -678,12 +667,11 @@ a {
                         一個人走得快,一群人走得遠。在這裡,您將結識志同道合的投資夥伴與專業導師,讓環境成為您成功的加速器。
                     </p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- 6. TEAM / ABOUT -->
+    <!-- 6. TEAM -->
     <section class="team-section">
         <div class="team-grid">
             <div class="team-text">
@@ -705,14 +693,13 @@ a {
                     </div>
                 </div>
             </div>
-            <!-- Updated: Team collaboration image -->
             <div class="team-img">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Team Collaboration">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Team">
             </div>
         </div>
     </section>
 
-    <!-- 7. CTA FOOTER -->
+    <!-- 7. CTA -->
     <footer id="cta" class="footer-cta">
         <div class="container">
             <h2 style="font-size: 3.5rem; margin-bottom: 20px;">立即開啟創收之旅</h2>
@@ -722,15 +709,14 @@ a {
                 <p><i class="fa-regular fa-calendar"></i> 2025年1月28日</p>
             </div>
 
-            <!-- Added link to Google Form -->
             <a href="https://forms.gle/ZF43SgKH52Ks55DEA" target="_blank" class="cta-btn-large">立即預約席次 <i class="fa-solid fa-arrow-right"></i></a>
             <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.6;">詳細時間與地點將於報名後通知</p>
         </div>
     </footer>
 
-    <!-- Fixed Logo Link with Max House Logo (Icon Version) -->
-    <a href="#" class="fixed-logo-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" title="返回頂部 / Max House">
-        <i class="fa-solid fa-house-chimney"></i>
+    <!-- Fixed Logo Button -->
+    <a href="#" class="fixed-logo-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" title="返回頂部">
+        <img src="favicon.png" alt="Max House">
     </a>
 
 </body>
